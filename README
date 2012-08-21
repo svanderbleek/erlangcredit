@@ -1,0 +1,7 @@
+Build Process
+
+make build
+
+Test Process
+
+make test
