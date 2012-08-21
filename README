@@ -1,7 +1,12 @@
-Build Process
+Build
 
 make build
 
-Test Process
+Execute
 
-make test
+cat somefile | ./credit
+
+Test
+
+unit: make test
+file: make test_file

@@ -1,5 +1,0 @@
-{release, {"credit", "A"}, {erts, "5.9.1"}, [
-  {stdlib,"1.18.1"},
-  {kernel,"2.15.1"},
-  {credit, "0"}
-]}.

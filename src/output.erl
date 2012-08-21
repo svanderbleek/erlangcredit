@@ -1,6 +1,6 @@
 -module(output).
 
--export([summarize/1]).
+-export([write_data/1]).
 
-summarize(transactions) ->
-  io:format("").
+write_data(Accounts) ->
+  io:format("done").

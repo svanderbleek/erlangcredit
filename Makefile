@@ -1,17 +1,17 @@
-build:
-	erl -make
-	cd ebin; erl -noshell -s systools make_script credit -s erlang halt
-	cd ebin; erl -noshell -s systools make_tar credit -s erlang halt
-
 clean:
 	rm -f ebin/*.beam
-	rm -f ebin/*.boot
-	rm -f ebin/*.script
-	rm -f ebin/*.tar.gz
-	rm -f ebin/*.dump
+	rm -f *.dump
+	rm -f credit
+
+build: clean
+	erl -make
+	./rebar escriptize
 
 test: clean build
 	erl -noshell -pa ebin -eval "eunit:test(operations, [verbose])" -s init stop
 	erl -noshell -pa ebin -eval "eunit:test(validation, [verbose])" -s init stop
 
-.PHONY: test build clean
+test_file: clean build
+	cat testfile | ./credit
+
+.PHONY: clean build test test_file
