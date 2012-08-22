@@ -19,6 +19,7 @@ attempt_charge(Amount) ->
   fun (Account) -> 
     attempt_charge(Amount, Account) 
   end.
+
 attempt_charge(Amount, {Balance, Limit}) when Amount =< Limit - Balance ->
   {Balance + Amount, Limit};
 attempt_charge(_, {Balance, Limit}) ->
