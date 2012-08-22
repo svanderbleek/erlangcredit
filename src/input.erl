@@ -1,6 +1,6 @@
 -module(input).
 
--export([read_line/0,make_int/1]).
+-export([read_line/0]).
 
 read_line() ->
   case io:get_line("") of

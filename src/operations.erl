@@ -22,6 +22,7 @@ attempt_charge(Amount) ->
 
 attempt_charge(Amount, {Balance, Limit}) when Amount =< Limit - Balance ->
   {Balance + Amount, Limit};
+
 attempt_charge(_, {Balance, Limit}) ->
   {Balance, Limit}.
 

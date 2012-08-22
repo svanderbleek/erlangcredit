@@ -8,9 +8,11 @@ main(_) ->
 
 process(eof, Accounts) ->
   output:write_accounts(Accounts);
+
 process([_, Name, Card_Number, Limit], Accounts) ->
   Updated = operations:add(Name, Card_Number, Limit, Accounts),
   process(input:read_line(), Updated);
+
 process([Command, Name, Amount], Accounts) ->
   case Command of
     "Charge" -> Updated = operations:charge(Name, Amount, Accounts);
