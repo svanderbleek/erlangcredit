@@ -6,7 +6,9 @@ add_test() ->
   First_Add  = operations:add("Tom", 4111111111111111, 1000, dict:new()),
   Second_Add = operations:add("Lisa", 5454545454545454, 3000, First_Add),
   Third_Add  = operations:add("Quincy", 1234567890123456, 2000, Second_Add),
-  Dict_Add   = dict:store("Lisa", {0, 3000}, dict:store("Tom", {0, 1000}, dict:new())),
+  Dict_Add   = dict:store("Quincy", error, 
+               dict:store("Lisa", {0, 3000}, 
+               dict:store("Tom", {0, 1000}, dict:new()))),
   ?assertEqual(Third_Add, Dict_Add).
 
 charge_test() ->

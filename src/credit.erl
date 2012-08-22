@@ -9,13 +9,14 @@ main(_) ->
 process(eof, Accounts) ->
   output:write_accounts(Accounts);
 
-process([_, Name, Card_Number, Limit], Accounts) ->
+process(["Add", Name, Card_Number, Limit], Accounts) ->
   Updated = operations:add(Name, Card_Number, Limit, Accounts),
   process(input:read_line(), Updated);
 
-process([Command, Name, Amount], Accounts) ->
-  case Command of
-    "Charge" -> Updated = operations:charge(Name, Amount, Accounts);
-    "Credit" -> Updated = operations:credit(Name, Amount, Accounts)
-  end,
+process(["Charge", Name, Amount], Accounts) ->
+  Updated = operations:charge(Name, Amount, Accounts),
+  process(input:read_line(), Updated);
+
+process(["Credit", Name, Amount], Accounts) ->
+  Updated = operations:credit(Name, Amount, Accounts),
   process(input:read_line(), Updated).

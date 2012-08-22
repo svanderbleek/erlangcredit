@@ -5,7 +5,7 @@
 write_accounts(Accounts) ->
   write_account(lists:reverse(dict:to_list(Accounts))).
 
-write_account([{Name, {Balance, Limit}}|Accounts]) ->
+write_account([{Name, {Balance, _}}|Accounts]) ->
   io:fwrite("~s: $~w\n", [Name, Balance]),
   write_account(Accounts);
 
