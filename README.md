@@ -19,5 +19,5 @@ cat somefile | ./credit
 Test
 -
 
-unit: make test
+unit: make test  
 file: make test_file
