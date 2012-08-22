@@ -12,6 +12,6 @@ test: clean build
 	erl -noshell -pa ebin -eval "eunit:test(validation, [verbose])" -s init stop
 
 test_file: clean build
-	cat testfile | ./credit
+	cat test/testfile | ./credit
 
 .PHONY: clean build test test_file

@@ -9,7 +9,7 @@ add(Name, Card_Number, Limit, Accounts) ->
     true -> 
       dict:store(Name, {?BALANCE, Limit}, Accounts);
     false -> 
-      Accounts
+      dict:store(Name, error, Accounts)
   end.
 
 charge(Name, Amount, Accounts) ->
