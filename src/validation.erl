@@ -10,11 +10,11 @@ double_every_other_and_sum(Digit_List) ->
   double_every_other_and_sum(lists:reverse(Digit_List), 0, false).
 
 % when doubling we actually sum the sum of the digits
-double_every_other_and_sum([H|T], Accumulator, Double) when Double  ->
-  double_every_other_and_sum(T, Accumulator + digit_sum(2*H), not Double);
+double_every_other_and_sum([H|T], Accumulator, true) ->
+  double_every_other_and_sum(T, Accumulator + digit_sum(2*H), false);
 
-double_every_other_and_sum([H|T], Accumulator, Double) ->
-  double_every_other_and_sum(T, Accumulator + H, not Double);
+double_every_other_and_sum([H|T], Accumulator, false) ->
+  double_every_other_and_sum(T, Accumulator + H, true);
 
 double_every_other_and_sum([], Accumulator, _) ->
   Accumulator.
