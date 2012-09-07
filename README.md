@@ -1,10 +1,10 @@
 Credit Exercise
 =
 
-Reason
+About
 -
 
-I used Erlang because I have some free time and wanted to try the language out.
+Wanted to try Erlang out, just a little command parsing and model building problem.
 
 Setup
 -
